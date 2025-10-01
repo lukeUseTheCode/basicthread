@@ -9,3 +9,7 @@ src: Folder of source code
 test: Folder for testing and debbugging
 CMakeList.txt: cmake file
 README.md this: files
+
+
+MOST IMPOORTANT:
+All developers use the development branch
