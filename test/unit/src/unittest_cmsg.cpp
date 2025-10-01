@@ -1,6 +1,6 @@
 /**
  * @file unittest_cmsg.hpp
- * @brief Implement namespace ns_unittest_cmgsfor unit test of class cmg
+ * @brief Implement namespace ns_unittest_cmgs and main for unit test of class cmg
  * @details
  * @author LukeUseTheCode
  * @date September 30, 2025
@@ -12,8 +12,8 @@
  * @todo
  * @deprecated
  * @def
- * 
  */
+#include <cstdlib>
 #include "../../../src/cbasicthread.h"
 
 namespace ns_unittest_cmg {
@@ -81,4 +81,40 @@ namespace ns_unittest_cmg {
         }
         return success; // Return true if all messages matched, false otherwise
     }
+}
+
+bool call_test_cmsg() ;
+bool call_test_cmsg() {
+    const long unsigned int nthreads = 157;
+    //std::cout << "\tnum. of thread : " << nthreads << "\n";
+    const bool enable_object_cmsg = true;
+    /*if constexpr ( enable_object_cmsg )
+        std::cout << "\tAllocated object cunittest_cmg\n";
+    else
+        std::cout << "\tNOT Allocated object cunittest_cmg\n";*/
+    return ns_unittest_cmg::test_cmsg<enable_object_cmsg>(nthreads);
+}
+
+int main(int argc,char* argv[]) {
+    std::cout << "\n";
+    std::cout << "==========================================\n";
+    std::cout << "Start unit test of cmsg class...\n";
+    std::cout << "==========================================\n";
+    std::cout << "\n";
+    if( argc > 1 ) {
+        std::cout << "list of arguments:\n";
+        for (int i=0; i<argc; i++)
+            std::cout << "\t[" << i << "] : " << argv[i] << std::endl;
+    }
+
+    std::cout << "call_test_cmsg : ";
+    if ( call_test_cmsg() )
+        std::cout << "Test passed! :)\n";
+    else {
+        std::cout << "Test failed! :(\n"; 
+        return EXIT_FAILURE;
+    }
+
+    std::cout << std::endl;
+    return EXIT_SUCCESS;
 }

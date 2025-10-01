@@ -9,9 +9,15 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     -Wmissing-include-dirs -Wfloat-conversion -Wduplicated-branches -Wformat-security -Wcast-qual -Wnon-virtual-dtor ")
 endif()
 set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++2a -O3 -g3" )
+
+################################################################################
+#
+# Unit Test cmsg Class
 # source file
-file( GLOB_RECURSE UNIT_TEST_THREAD_SRC "./unit/src/*.cpp" )
+file( GLOB_RECURSE UNIT_TEST_CMSG_SRC "./unit/src/unittest_cmsg.cpp" )
 # executable
-set( UNIT_TEST_THREAD_BIN unit_test )
-# app eseguibile dal file di origine specificato main.cpp .
-add_executable( ${UNIT_TEST_THREAD_BIN} ${UNIT_TEST_THREAD_SRC} )
+set( UNIT_TEST_CMSG_BIN unit_test_cmsg )
+add_executable( ${UNIT_TEST_CMSG_BIN} ${UNIT_TEST_CMSG_SRC} )
+#
+#
+#
